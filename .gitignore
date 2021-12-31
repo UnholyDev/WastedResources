@@ -6,8 +6,8 @@
 # Node artifact files
 node_modules/
 dist/
-Libary/*
-ProjectSettings/*
+Libary/
+ProjectSettings/
 
 # Compiled Java class files
 *.class
@@ -41,6 +41,10 @@ Thumbs.db
 *.app
 *.exe
 *.war
+
+# PS documents
+*.ps
+*.clip
 
 # Large media files
 *.mp4
