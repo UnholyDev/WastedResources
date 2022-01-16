@@ -54,3 +54,6 @@ Thumbs.db
 *.mov
 *.wmv
 
+Library/APIUpdater/project-dependencies.graph
+Library/Artifacts/9f/9fbd0c021d8a4bdf8e334b2f3508c767
+Library/*
