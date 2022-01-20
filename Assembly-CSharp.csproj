@@ -54,9 +54,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Interfaces.cs" />
+    <Compile Include="Assets\_Scripts\EnergyController.cs" />
     <Compile Include="Assets\_Scripts\Prototyping.cs" />
     <Compile Include="Assets\_Scripts\Item.cs" />
-    <Compile Include="Assets\_Scripts\EnergyController.cs" />
+    <Compile Include="Assets\_Scripts\KidController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Brainstorm.txt" />

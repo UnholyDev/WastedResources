@@ -31,6 +31,11 @@ public class Item : MonoBehaviour, IInteractable
         }
     }
 
+    public bool GetActive()
+    {
+        return _active;
+    }
+
     // Update is called once per frame
     void OnMouseDown()
     {
