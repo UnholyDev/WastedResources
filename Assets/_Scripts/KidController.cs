@@ -10,7 +10,7 @@ public class KidController : MonoBehaviour
 
     public float _speed = 5;
 
-    private bool _movingLeft = true;
+    private bool _movingLeft = false;
 
     private Vector2 _currentPosition;
     private Animator anim;
@@ -53,12 +53,12 @@ public class KidController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("hit");
-        Item inter = collision.GetComponent<Item>();
+        //print("hit");
+        IInteractable inter = collision.GetComponent<IInteractable>();
 
         if (inter != null && !inter.GetActive())
         {
-            print("interacting with " + inter.name);
+            //print("interacting with " + inter.GetName());
             inter.Interact();
         }
     }

@@ -6,14 +6,21 @@ public class Item : MonoBehaviour, IInteractable
 {
     public float energyCost = 1;
 
+    [SerializeField]
     bool _active = false;
     Animator _anim;
 
     public void Interact()
     {
+        //If was active, decrement
+        if (!_active)
+            EnergyController.NumberOfActiveItems++;
+        else
+            EnergyController.NumberOfActiveItems--;
+
         //Flip the items active state
         _active = !_active;
-        print("Interacted with the " + this.name + " to turn it " + _active);
+        //print("Interacted with the " + this.name + " to turn it " + _active);
         _anim.SetBool("Active", _active);
     }
 
@@ -40,5 +47,10 @@ public class Item : MonoBehaviour, IInteractable
     void OnMouseDown()
     {
         Interact();
+    }
+
+    public string GetName()
+    {
+        return this.name;
     }
 }
