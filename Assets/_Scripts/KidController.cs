@@ -10,10 +10,11 @@ public class KidController : MonoBehaviour
 
     public float _speed = 5;
 
-    private bool _movingLeft = false;
+    private bool _movingLeft = true;
 
     private Vector2 _currentPosition;
     private Animator anim;
+    public AudioSource kidwalking;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,12 +38,12 @@ public class KidController : MonoBehaviour
 
         if (_movingLeft)
         {
-            _currentPosition -= new Vector2(_speed * Time.deltaTime, 0f);
+            _currentPosition -= new Vector2(_speed * Time.deltaTime, _currentPosition.y);
             transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
         }
         else
         {
-            _currentPosition += new Vector2(_speed * Time.deltaTime, 0f);
+            _currentPosition += new Vector2(_speed * Time.deltaTime, _currentPosition.y);
             transform.localRotation = new Quaternion(0f, 180f, 0f, 0f);
         }
 
@@ -53,12 +54,12 @@ public class KidController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //print("hit");
-        IInteractable inter = collision.GetComponent<IInteractable>();
+        print("hit");
+        Item inter = collision.GetComponent<Item>();
 
         if (inter != null && !inter.GetActive())
         {
-            //print("interacting with " + inter.GetName());
+            print("interacting with " + inter.name);
             inter.Interact();
         }
     }
