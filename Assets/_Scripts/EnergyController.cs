@@ -35,6 +35,9 @@ public class EnergyController : MonoBehaviour
     {
         _energyText.text = "Energy: " + ((int)_energyLevel).ToString();
         _boltSpriteRenderer.color = Color.Lerp(Color.green, Color.red, NumberOfActiveItems * 0.25f);
+
+        if (_energyLevel <= 0)
+            LevelController.Instance.GoNext();
     }
 
     public void SiphonEnergy(float reduction)

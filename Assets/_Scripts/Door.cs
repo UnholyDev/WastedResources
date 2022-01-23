@@ -43,7 +43,7 @@ public class Door : MonoBehaviour, IInteractable
         //For now just deletes the child
         if(other.GetComponent<KidController>() != null)
         {
-            other.GetComponent<KidController>().ChangePosition(_pairedDoor.position);
+            other.GetComponent<KidController>().ChangePosition(_pairedDoor.position, _pairedDoor.GetComponent<Door>()._roomManager);
         }
 
         if (other.GetComponent<leftrightoldman>() != null)

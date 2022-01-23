@@ -19,6 +19,9 @@ public class KidController : MonoBehaviour
 
     private bool _canGoThroughDoor = true;
 
+    [SerializeField]
+    public RoomManager _roomManager;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -29,12 +32,12 @@ public class KidController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_currentPosition.x > _rightBound.position.x)
+        if(_currentPosition.x > _roomManager._rightBoundary.position.x)
         {
             _movingLeft = true;
         }
 
-        if (_currentPosition.x < _leftBound.position.x)
+        if (_currentPosition.x < _roomManager._leftBoundary.position.x)
         {
             _movingLeft = false;
         }
@@ -55,11 +58,12 @@ public class KidController : MonoBehaviour
         anim.SetBool("Walking", true);
     }
 
-    public void ChangePosition(Vector2 pos)
+    public void ChangePosition(Vector2 pos, RoomManager rm)
     {
         if(_canGoThroughDoor)
         {
             _currentPosition = pos;
+            _roomManager = rm;
             StartCoroutine(DoorDelayTimer());
         }
     }

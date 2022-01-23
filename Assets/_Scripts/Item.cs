@@ -14,7 +14,7 @@ public class Item : MonoBehaviour, IInteractable
     {
         //Flip the items active state
         _active = !_active;
-        print("Interacted with the " + this.name + " to turn it " + _active);
+        //print("Interacted with the " + this.name + " to turn it " + _active);
         _anim.SetBool("Active", _active);
             
         
@@ -49,6 +49,11 @@ public class Item : MonoBehaviour, IInteractable
     public bool GetActive()
     {
         return _active;
+    }
+
+    public string GetName()
+    {
+        return this.name;
     }
 
     // Update is called once per frame
