@@ -37,12 +37,12 @@ public class KidController : MonoBehaviour
 
         if (_movingLeft)
         {
-            _currentPosition -= new Vector2(_speed * Time.deltaTime, _currentPosition.y);
+            _currentPosition -= new Vector2(_speed * Time.deltaTime, 0f);
             transform.localRotation = new Quaternion(0f, 0f, 0f, 0f);
         }
         else
         {
-            _currentPosition += new Vector2(_speed * Time.deltaTime, _currentPosition.y);
+            _currentPosition += new Vector2(_speed * Time.deltaTime, 0f);
             transform.localRotation = new Quaternion(0f, 180f, 0f, 0f);
         }
 
