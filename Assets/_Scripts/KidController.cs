@@ -10,10 +10,14 @@ public class KidController : MonoBehaviour
 
     public float _speed = 5;
 
+    //public RoomManager _roomManager;
+
     private bool _movingLeft = false;
 
     private Vector2 _currentPosition;
     private Animator anim;
+
+    private bool _canGoThroughDoor = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -51,6 +55,22 @@ public class KidController : MonoBehaviour
         anim.SetBool("Walking", true);
     }
 
+    public void ChangePosition(Vector2 pos)
+    {
+        if(_canGoThroughDoor)
+        {
+            _currentPosition = pos;
+            StartCoroutine(DoorDelayTimer());
+        }
+    }
+    IEnumerator DoorDelayTimer()
+    {
+        _canGoThroughDoor = false;
+        _movingLeft = false;
+        yield return new WaitForSeconds(0.5f);
+        _canGoThroughDoor = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //print("hit");
@@ -62,4 +82,6 @@ public class KidController : MonoBehaviour
             inter.Interact();
         }
     }
+
+    
 }
