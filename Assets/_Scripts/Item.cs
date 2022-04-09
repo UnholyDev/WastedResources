@@ -16,9 +16,14 @@ public class Item : MonoBehaviour, IInteractable
         _active = !_active;
         //print("Interacted with the " + this.name + " to turn it " + _active);
         _anim.SetBool("Active", _active);
-            
-        
-        if(!sound.isPlaying)
+
+        if (_active)
+            EnergyController.NumberOfActiveItems++;
+        else
+            EnergyController.NumberOfActiveItems--;
+
+
+        if (!sound.isPlaying)
         {
             sound.Play();
         }
@@ -54,12 +59,5 @@ public class Item : MonoBehaviour, IInteractable
     public string GetName()
     {
         return this.name;
-    }
-
-    // Update is called once per frame
-    void OnMouseDown()
-    {
-        Interact();
-        
     }
 }

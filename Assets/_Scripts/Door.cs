@@ -28,13 +28,14 @@ public class Door : MonoBehaviour, IInteractable
         _active = !_active;
         _anim.SetBool("Active", _active);
     }
+
     public bool GetActive()
     {
         return _active;
     }
     public string GetName()
     {
-        return this.name;
+        return "Door";
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,7 +49,20 @@ public class Door : MonoBehaviour, IInteractable
 
         if (other.GetComponent<leftrightoldman>() != null)
         {
-            //other.GetComponent<leftrightoldman>().ChangePosition(_pairedDoor.position);
+            leftrightoldman.OldMan._goThroughDoor = true;
+            leftrightoldman.OldMan._currentDoor = _pairedDoor;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<leftrightoldman>() != null)
+        {
+            if (leftrightoldman.OldMan._goThroughDoor)
+            {
+                leftrightoldman.OldMan._goThroughDoor = false;
+                leftrightoldman.OldMan._currentDoor = null;
+            }
         }
     }
 

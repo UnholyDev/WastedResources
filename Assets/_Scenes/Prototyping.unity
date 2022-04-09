@@ -921,11 +921,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394879160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -941.27985, y: -23, z: -19440}
-  m_LocalScale: {x: 216, y: 216, z: 216}
+  m_LocalPosition: {x: -357, y: -23, z: 0}
+  m_LocalScale: {x: 134.13599, y: 134.13599, z: 134.13599}
   m_Children: []
   m_Father: {fileID: 1855717221}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1394879162
 SpriteRenderer:
@@ -1137,6 +1137,8 @@ GameObject:
   - component: {fileID: 1428957974}
   - component: {fileID: 1428957973}
   - component: {fileID: 1428957977}
+  - component: {fileID: 1428957979}
+  - component: {fileID: 1428957978}
   m_Layer: 0
   m_Name: Old Man
   m_TagString: Untagged
@@ -1245,6 +1247,8 @@ MonoBehaviour:
   moveSpeed: 0
   animator: {fileID: 1428957973}
   oldmanwalking: {fileID: 1428957977}
+  _goThroughDoor: 0
+  _currentDoor: {fileID: 0}
 --- !u!82 &1428957977
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1341,6 +1345,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &1428957978
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428957972}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!61 &1428957979
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428957972}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.085}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.76, y: 2.17}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.76, y: 2.17}
+  m_EdgeRadius: 0
 --- !u!1 &1442360249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,16 +1683,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528109413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 334, y: 62.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 163.9, y: 36.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1855717221}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 94.880005, y: 0}
-  m_SizeDelta: {x: 50, y: 46}
+  m_AnchoredPosition: {x: 35.899994, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!212 &1528109415
 SpriteRenderer:
@@ -1956,8 +2007,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1394879161}
   - {fileID: 1528109414}
+  - {fileID: 1394879161}
   m_Father: {fileID: 2120490918}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1988,10 +2039,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
